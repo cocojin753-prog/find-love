@@ -1,13 +1,9 @@
 # Find Love
 
-Bilingual Korean / English reading site.
+Live site: https://cocojin753-prog.github.io/find-love/
 
-Site files: `find-love/`.
+Bilingual Korean / English reading site. Static HTML, CSS, JavaScript and self-hosted fonts; no build step.
 
-## GitHub Pages
+GitHub Pages: deploy from branch `main`, folder `/ (root)`.
 
-In Settings → Pages, select Deploy from a branch, branch `main`, folder `/ (root)`.
-
-Expected address after activation: https://cocojin753-prog.github.io/-Place-of-Light/find-love/
-
-The site contains static HTML and self-hosted fonts, with no build step. Original social-post attribution is included in the site footer; font licenses are in `find-love/fonts/`.
+Original social-post attribution appears in the site footer. Font license is included in `fonts/`.
