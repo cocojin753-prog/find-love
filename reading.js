@@ -1,6 +1,7 @@
 (() => {
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-// Chapter-based stops keep the warming point identical in both languages.
+// Advance each chapter-derived color stop by 25% of its scroll distance.
+const gradientTiming = 0.75;
 const stageChapters = [0,5,10,13,16,18];
 const palette = [
  ['#54583c','#575334','#5c542c','#3c4537'],
@@ -18,7 +19,7 @@ function update() {
  if (reduced.matches) { vars.forEach(key => document.body.style.removeProperty(key)); return; }
  const max = Math.max(0,document.documentElement.scrollHeight-innerHeight);
  const readingTop = innerWidth >= 651 ? 198 : 166;
- const stops = stageChapters.map(n => Math.max(0,Math.min(max,sections[n].getBoundingClientRect().top+scrollY-readingTop)));
+ const stops = stageChapters.map(n => Math.max(0,Math.min(max,sections[n].getBoundingClientRect().top+scrollY-readingTop)) * gradientTiming);
  let index = 0;
  while(index < palette.length-2 && scrollY >= stops[index+1]) index++;
  const span = stops[index+1]-stops[index];
