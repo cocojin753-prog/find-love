@@ -36,3 +36,8 @@ main{padding-top:calc(var(--fade-clear) + 16px)}section{scroll-margin-top:calc(v
 @media print{main{padding-top:0}}
 
 .verse:lang(ko){line-height:21px}
+
+/* Keep navigation geometry stable while revealing the title after scrolling. */
+.site-header h1,.language-toggle a{font-size:13px}
+.site-header .brand{opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+body.has-scrolled .site-header .brand{opacity:.8;visibility:visible}

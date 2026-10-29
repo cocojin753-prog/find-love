@@ -14,6 +14,7 @@ const vars = ['--glow','--sky','--mist','--horizon'];
 let queued = false;
 function update() {
  queued = false;
+ document.body.classList.toggle('has-scrolled', scrollY > 8);
  if (reduced.matches) { vars.forEach(key => document.body.style.removeProperty(key)); return; }
  const max = Math.max(0,document.documentElement.scrollHeight-innerHeight);
  const readingTop = innerWidth >= 651 ? 198 : 166;
