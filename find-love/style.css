@@ -1,0 +1,38 @@
+@font-face{font-family:'EB Garamond';src:url('fonts/EBGaramond-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Gowun Batang';src:url('fonts/GowunBatang-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+:root{--page-width:640px;--side:30px;font-family:'Gowun Batang',serif;color:#fff;background:#353a29;font-synthesis:none;font-weight:400}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;isolation:isolate;min-width:280px;min-height:100svh;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-shadow:0 1px 8px rgba(40,25,74,.38),0 2px 24px rgba(40,25,74,.24)}[hidden]{display:none!important}a{color:inherit;text-decoration:none}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible{outline:2px solid currentColor;outline-offset:5px}h1,h2,p{margin:0;font-weight:400}.ambience,.reading-veil{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 14% 12%,var(--glow,#54583c) 0%,transparent 64%),radial-gradient(ellipse at 92% 7%,var(--sky,#575334) 0%,transparent 59%),radial-gradient(ellipse at 47% 76%,var(--mist,#5c542c) 0%,transparent 58%),radial-gradient(ellipse at 92% 96%,var(--horizon,#3c4537) 0%,transparent 64%),#292f25}
+
+.site-header{position:fixed;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 30px;padding-top:max(10px,env(safe-area-inset-top));min-height:64px;background:transparent}.site-header h1{font-size:15px;line-height:24px;flex-shrink:0}.brand{display:flex;align-items:center;min-height:44px;white-space:nowrap}.language-toggle{display:grid;grid-template-columns:45px 6px 24px;flex-shrink:0;align-items:center;gap:8px}.language-toggle a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;font-size:15px;line-height:24px;white-space:nowrap;text-underline-offset:6px;text-decoration-thickness:.5px}.language-toggle a{opacity:.55;text-decoration:none}.language-toggle a[aria-current="true"]{opacity:1;text-decoration:none}.language-toggle a:hover{opacity:1}.nav-divider{font-family:"EB Garamond",Garamond,serif;font-size:15px;line-height:24px;letter-spacing:0;text-align:center;opacity:.55}
+
+main{width:min(100%,var(--page-width));margin-inline:auto;padding:166px var(--side) 0;outline:none}section{padding:0 0 128px;scroll-margin-top:146px}h2{font-size:17px;line-height:1.8;letter-spacing:-.5px;margin-bottom:20px}h2 a{display:block}.verse{font-size:15px;line-height:23px;letter-spacing:0}p+p{margin-top:12px}[lang="en"]{word-break:normal}.emphasis{text-decoration:underline;text-decoration-color:#ffffff70;text-underline-offset:6px;text-decoration-thickness:.5px}footer{width:min(100%,var(--page-width));padding:0 var(--side) 64px;margin:auto;font-size:13px;line-height:1.8;opacity:.8}footer a{text-decoration:none}::selection{background:#ffffff40}.skip-link{position:fixed;top:-100px;left:20px;padding:12px;background:#514451;z-index:10}.skip-link:focus{top:15px}
+/* A viewport-fixed veil shares the exact background with .ambience.
+   Its fixed alpha ramp cannot lag behind compositor-driven scrolling. */
+:root{--fade-solid:98px;--fade-clear:150px}
+.reading-veil{z-index:2;-webkit-mask-image:linear-gradient(to bottom,#000 var(--fade-solid),transparent var(--fade-clear));mask-image:linear-gradient(to bottom,#000 var(--fade-solid),transparent var(--fade-clear))}
+@media(min-width:800px){:root{--page-width:660px;--side:40px}main{padding-top:166px}section{padding-bottom:150px}}
+@media(min-width:651px){.site-header{padding:20px 5vw;min-height:84px}.language-toggle{gap:12px}:root{--fade-solid:130px;--fade-clear:182px}section{scroll-margin-top:178px}}
+@media(max-width:650px){main{padding-top:122px}}
+@media(max-width:350px){:root{--side:20px}.site-header{padding-inline:20px;gap:10px}.language-toggle{gap:6px}}
+@media(max-width:300px){.site-header{padding-inline:12px;gap:6px}.site-header h1{font-size:14px}.language-toggle{gap:4px}.language-toggle a{font-size:14px}}
+@media(min-width:351px) and (max-width:799px){:root{--side:40px}main{padding-inline:40px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{.ambience,.reading-veil,.site-header,.skip-link{display:none}body{background:white;color:black;text-shadow:none}main{padding:0}section{padding-bottom:40px}h2{break-after:avoid}}
+
+:lang(en){font-family:"EB Garamond",Garamond,serif}:lang(ko){font-family:"Gowun Batang",serif}
+
+.verse:lang(en){font-size:18px}
+
+.verse{color:rgba(255,255,255,.7)}
+:lang(en){letter-spacing:0}
+@media print{.verse{color:inherit}}
+
+h2:lang(ko){font-size:17px}
+
+.site-header .brand{color:#dededb;opacity:.8}
+.chapter-number{display:block;font-size:15px;line-height:20px;opacity:.7;margin-bottom:4px}
+
+main{padding-top:calc(var(--fade-clear) + 16px)}section{scroll-margin-top:calc(var(--fade-clear) + 16px)}
+@media print{main{padding-top:0}}
+
+.verse:lang(ko){line-height:21px}
