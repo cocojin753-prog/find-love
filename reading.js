@@ -82,8 +82,12 @@ document.addEventListener('click',event => {
 document.addEventListener('keydown',event => {
  if(event.key === 'Escape' && !menu.hidden){event.preventDefault();toggleMenu(false,true);}
 });
-header.addEventListener('focusout',() => {
- queueMicrotask(() => {if(!header.contains(document.activeElement)) toggleMenu(false);});
+// Do not close on focusout: during pointer activation activeElement can be
+// body between blur and focus. Hiding the link then cancels its native click.
+// Close only once focus has actually landed outside the header. Outside
+// pointer clicks and Escape are still handled above; article links stay native.
+document.addEventListener('focusin',event => {
+ if(!menu.hidden && !header.contains(event.target)) toggleMenu(false);
 });
 // Preserve the existing six color stops and 25%-earlier transition timing.
 // Scale chapter indices only, so articles of different lengths use the same rhythm.
