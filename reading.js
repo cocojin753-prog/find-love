@@ -25,7 +25,7 @@ menu.setAttribute('aria-labelledby', 'article-menu-heading');
 menu.innerHTML = '<p class="article-menu-heading" id="article-menu-heading"><span data-language="ko" lang="ko">글 목록</span><span data-language="en" lang="en" hidden>Readings</span></p><ul></ul>';
 const articles = [
  {id:'love',file:'index.html',ko:'나는 어떻게 사랑을 찾을 수 있을까?',en:'How do I find love?'},
- {id:'honesty',file:'honesty.html',ko:'진실한 나로 관계 맺기',en:'Love & honesty'}
+ {id:'honesty',file:'honesty.html',ko:'진실한 나로 관계 맺기',en:'Genuine Relationships'}
 ];
 articles.forEach((article, index) => {
  const item = document.createElement('li');
@@ -142,7 +142,7 @@ function selectLanguage(lang,preservePosition){
   button.href = destination.href;
  });
  languageNav.setAttribute('aria-label',lang==='ko'?'본문 언어':'Reading language');
- document.querySelector('.skip-link').textContent = lang==='ko'?'본문 바로가기':'Skip to text';
+ document.querySelector('.skip-link').textContent = lang==='ko'?'본문 언어' === 'Reading language' ? '' : '본문 바로가기':'Skip to text';
  const sourceLabel = document.querySelector('[data-source-label]');
  if(sourceLabel) sourceLabel.textContent = isHonesty ? (lang==='ko'?'원문 계정':'Source account') : (lang==='ko'?'원문 게시':'Original post');
  menu.querySelectorAll('[data-article-file]').forEach(link => {
