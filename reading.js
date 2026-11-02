@@ -142,7 +142,7 @@ function selectLanguage(lang,preservePosition){
   button.href = destination.href;
  });
  languageNav.setAttribute('aria-label',lang==='ko'?'본문 언어':'Reading language');
- document.querySelector('.skip-link').textContent = lang==='ko'?'본문 언어' === 'Reading language' ? '' : '본문 바로가기':'Skip to text';
+ document.querySelector('.skip-link').textContent = lang==='ko'?'본문 바로가기':'Skip to text';
  const sourceLabel = document.querySelector('[data-source-label]');
  if(sourceLabel) sourceLabel.textContent = isHonesty ? (lang==='ko'?'원문 계정':'Source account') : (lang==='ko'?'원문 게시':'Original post');
  menu.querySelectorAll('[data-article-file]').forEach(link => {
